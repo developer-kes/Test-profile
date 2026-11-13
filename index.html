@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>홍길동 | 프론트엔드 개발자</title>
+  <meta name="description" content="프론트엔드 개발자 홍길동의 프로필 사이트" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard Variable', 'Pretendard', 'system-ui', 'sans-serif'] },
+          colors: {
+            bg: 'var(--bg)',
+            ink: 'var(--ink)',
+            body: 'var(--body)',
+            butter: 'var(--butter)',
+            'butter-soft': 'var(--butter-soft)',
+            'butter-deep': 'var(--butter-deep)',
+            line: 'var(--line)',
+            'on-butter': 'var(--on-butter)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="relative overflow-x-hidden bg-bg font-sans text-body antialiased">
+
+  <!-- Floating doodles (decor) -->
+  <svg class="doodle pointer-events-none absolute -left-4 top-24 w-44 sm:w-60" viewBox="0 0 240 60" fill="none" aria-hidden="true">
+    <path d="M4 40c20-40 36-40 52 0s32 40 52 0 36-40 52 0 32 40 52 0" stroke="#FFB3C7" stroke-width="9" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle pointer-events-none absolute right-0 top-20 w-40 sm:w-56" viewBox="0 0 200 120" fill="none" aria-hidden="true">
+    <path d="M10 20c60 40 120-30 150 10s-40 70-10 80" stroke="#FFD84D" stroke-width="12" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle spin-slow pointer-events-none absolute -right-8 top-[46rem] hidden w-40 md:block" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <path d="M50 50m0-6a6 6 0 1 1-6 6 14 14 0 1 1 14 14 24 24 0 1 1-24-24 34 34 0 1 1 34 34" stroke="#A9C7FF" stroke-width="7" stroke-linecap="round"/>
+  </svg>
+
+  <!-- Header / Navigation -->
+  <header class="fixed inset-x-0 top-0 z-50">
+    <nav class="mx-auto mt-3 flex max-w-5xl items-center justify-between rounded-full border-2 border-line bg-bg/80 px-5 py-2 backdrop-blur">
+      <a href="#home" class="text-xl font-extrabold text-ink">홍길동<span class="text-butter-deep">.</span></a>
+
+      <ul class="hidden items-center gap-1 md:flex">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" type="button" aria-label="다크 모드 전환" class="rounded-full p-2 hover:bg-butter-soft">
+          <span class="dark:hidden">🌙</span><span class="hidden dark:inline">☀️</span>
+        </button>
+        <a href="#contact" class="hidden rounded-full bg-butter px-5 py-2 text-sm font-bold text-on-butter transition hover:bg-butter-deep sm:inline-block">Let's Chat</a>
+        <button id="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false" class="rounded-full p-2 hover:bg-butter-soft md:hidden">
+          <svg class="h-6 w-6 text-ink" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <ul id="mobile-menu" class="mx-5 mt-2 hidden rounded-3xl border-2 border-line bg-bg/95 p-3 backdrop-blur md:hidden">
+      <li><a href="#home" class="nav-link block">Home</a></li>
+      <li><a href="#about" class="nav-link block">About</a></li>
+      <li><a href="#skills" class="nav-link block">Skills</a></li>
+      <li><a href="#projects" class="nav-link block">Projects</a></li>
+      <li><a href="#contact" class="nav-link block">Contact</a></li>
+    </ul>
+  </header>
+
+  <main class="relative">
+    <!-- Hero -->
+    <section id="home" class="mx-auto grid min-h-screen max-w-5xl items-center gap-8 px-5 pb-10 pt-28 md:grid-cols-2">
+      <div>
+        <p class="hero-in mb-3 inline-block rounded-full bg-butter-soft px-4 py-1 text-sm font-bold text-ink">안녕하세요 👋</p>
+        <h1 class="text-5xl font-extrabold leading-tight tracking-tight text-ink sm:text-6xl">
+          <span class="hero-in block">반가워요,</span>
+          <span class="hero-in block">저는 <span class="highlight">홍길동</span></span>
+          <span class="hero-in block">입니다!</span>
+        </h1>
+        <p class="hero-in mt-4 text-2xl font-bold text-body">프론트엔드 개발자</p>
+        <p class="hero-in mt-4 max-w-md text-lg leading-relaxed">사용자에게 편안한 경험을 주는 귀엽고 깔끔한 웹 화면을 만듭니다.</p>
+        <div class="hero-in mt-8 flex flex-wrap gap-3">
+          <a href="#projects" class="btn-bounce rounded-full bg-butter px-7 py-3 font-bold text-on-butter shadow-[0_5px_0_var(--butter-deep)]">프로젝트 보기</a>
+          <a href="#contact" class="btn-bounce rounded-full border-2 border-ink px-7 py-3 font-bold text-ink">연락하기</a>
+        </div>
+      </div>
+
+      <div class="relative mx-auto h-[26rem] w-full max-w-sm">
+        <div class="hero-blob absolute inset-x-8 inset-y-0 flex items-center justify-center overflow-hidden rounded-[999px] bg-gradient-to-b from-butter-soft to-butter text-[7rem]" aria-label="프로필 이미지 자리">🧑‍💻</div>
+        <span class="sticker bg-butter text-on-butter left-[-1rem] top-24 -rotate-12">Creative Coding</span>
+        <span class="sticker bg-[#BFE8C8] text-[#1F4A33] right-[-0.5rem] top-48 rotate-[10deg]">Clean UI</span>
+        <span class="sticker bg-[#FFB3C7] text-[#5a1f33] bottom-12 left-6 -rotate-6">Tailwind</span>
+        <span class="float-star absolute right-6 top-4 text-4xl">⭐</span>
+        <span class="float-star absolute bottom-2 right-14 text-3xl">✨</span>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mx-auto max-w-5xl px-5 py-24">
+      <h2 class="section-title reveal">About</h2>
+      <div class="reveal grid items-center gap-10 md:grid-cols-[auto_1fr]">
+        <div class="mx-auto flex h-40 w-40 items-center justify-center rounded-[2.5rem] border-4 border-butter bg-butter-soft text-6xl wobble" aria-label="프로필 이미지 자리">🐥</div>
+        <div class="space-y-3 text-lg leading-relaxed">
+          <p>웹의 기본기를 탄탄히 다지며 성장하고 있는 프론트엔드 개발자입니다.</p>
+          <p>HTML, CSS, JavaScript로 직접 만들어 보며 배우는 것을 좋아하고, 읽기 쉬운 코드와 접근성 높은 화면을 지향합니다.</p>
+          <p>새로운 기술을 배우고 팀과 함께 문제를 풀어가는 과정이 즐겁습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mx-auto max-w-5xl px-5 py-24">
+      <h2 class="section-title reveal">Skills</h2>
+      <div class="grid gap-6 sm:grid-cols-3">
+        <div class="card reveal">
+          <h3 class="mb-3 font-bold text-ink">Frontend</h3>
+          <div class="flex flex-wrap gap-2"><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span></div>
+        </div>
+        <div class="card reveal">
+          <h3 class="mb-3 font-bold text-ink">Styling & Motion</h3>
+          <div class="flex flex-wrap gap-2"><span class="badge">Tailwind CSS</span><span class="badge">GSAP</span><span class="badge">반응형 디자인</span></div>
+        </div>
+        <div class="card reveal">
+          <h3 class="mb-3 font-bold text-ink">Tools</h3>
+          <div class="flex flex-wrap gap-2"><span class="badge">Git</span><span class="badge">GitHub</span><span class="badge">VS Code</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mx-auto max-w-5xl px-5 py-24">
+      <h2 class="section-title reveal">Projects</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="card project-card reveal">
+          <div class="mb-4 flex h-36 items-center justify-center rounded-2xl bg-butter-soft text-5xl">🌐</div>
+          <h3 class="text-lg font-bold text-ink">개인 프로필 사이트</h3>
+          <p class="mt-2 text-sm leading-relaxed">Tailwind CSS와 GSAP으로 만든 반응형 단일 페이지 포트폴리오입니다.</p>
+          <div class="mt-3 flex flex-wrap gap-2"><span class="badge">HTML</span><span class="badge">GSAP</span></div>
+          <div class="mt-4 flex gap-4 text-sm font-bold text-ink"><a href="#" class="underline decoration-butter-deep decoration-2 underline-offset-4">GitHub</a><a href="#" class="underline decoration-butter-deep decoration-2 underline-offset-4">Demo</a></div>
+        </article>
+        <article class="card project-card reveal">
+          <div class="mb-4 flex h-36 items-center justify-center rounded-2xl bg-[#FFD9E3] text-5xl">✅</div>
+          <h3 class="text-lg font-bold text-ink">투두 리스트 앱</h3>
+          <p class="mt-2 text-sm leading-relaxed">할 일을 추가·완료·삭제하고 브라우저에 저장하는 간단한 앱입니다.</p>
+          <div class="mt-3 flex flex-wrap gap-2"><span class="badge">JavaScript</span><span class="badge">LocalStorage</span></div>
+          <div class="mt-4 flex gap-4 text-sm font-bold text-ink"><a href="#" class="underline decoration-butter-deep decoration-2 underline-offset-4">GitHub</a><a href="#" class="underline decoration-butter-deep decoration-2 underline-offset-4">Demo</a></div>
+        </article>
+        <article class="card project-card reveal">
+          <div class="mb-4 flex h-36 items-center justify-center rounded-2xl bg-[#D6E4FF] text-5xl">🌤️</div>
+          <h3 class="text-lg font-bold text-ink">날씨 대시보드</h3>
+          <p class="mt-2 text-sm leading-relaxed">공개 API로 도시별 날씨를 조회해 카드 형태로 보여줍니다.</p>
+          <div class="mt-3 flex flex-wrap gap-2"><span class="badge">JavaScript</span><span class="badge">REST API</span></div>
+          <div class="mt-4 flex gap-4 text-sm font-bold text-ink"><a href="#" class="underline decoration-butter-deep decoration-2 underline-offset-4">GitHub</a><a href="#" class="underline decoration-butter-deep decoration-2 underline-offset-4">Demo</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mx-auto max-w-5xl px-5 py-24">
+      <h2 class="section-title reveal">Contact</h2>
+      <div class="card reveal text-center">
+        <p class="text-lg">함께 일하고 싶거나 궁금한 점이 있다면 편하게 연락주세요 💌</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="mailto:your@email.com" class="btn-bounce inline-flex items-center gap-2 rounded-full bg-butter px-6 py-3 font-bold text-on-butter shadow-[0_5px_0_var(--butter-deep)]">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            your@email.com
+          </a>
+          <a href="https://github.com/your-id" target="_blank" rel="noopener noreferrer" class="btn-bounce inline-flex items-center gap-2 rounded-full border-2 border-ink px-6 py-3 font-bold text-ink">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t-2 border-line py-8 text-center text-sm">
+    © <span id="year"></span> 홍길동. All rights reserved.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
